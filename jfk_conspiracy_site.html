@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JFK Assassination: The Unanswered Questions</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(180deg, #0a0a0a 0%, #1a1a1a 50%, #0f0f0f 100%);
+            color: #d4d4d4;
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        .grain {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            opacity: 0.03;
+            z-index: 1000;
+            background-image: url('data:image/svg+xml,%3Csvg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noiseFilter"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noiseFilter)"/%3E%3C/svg%3E');
+        }
+
+        header {
+            background: linear-gradient(180deg, rgba(20,20,20,0.95) 0%, rgba(10,10,10,0.98) 100%);
+            padding: 60px 20px;
+            text-align: center;
+            border-bottom: 3px solid #8b0000;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.9);
+            position: relative;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 50% 0%, rgba(139,0,0,0.1) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        h1 {
+            font-size: 3.5em;
+            color: #ffffff;
+            text-shadow: 0 0 20px rgba(139,0,0,0.5), 0 4px 8px rgba(0,0,0,0.8);
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .subtitle {
+            font-size: 1.3em;
+            color: #999;
+            font-style: italic;
+            letter-spacing: 1px;
+        }
+
+        .date-stamp {
+            margin-top: 20px;
+            font-size: 0.95em;
+            color: #8b0000;
+            letter-spacing: 3px;
+            font-weight: bold;
+        }
+
+        nav {
+            background: rgba(15,15,15,0.95);
+            padding: 20px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid #333;
+            backdrop-filter: blur(10px);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        nav a {
+            color: #b8b8b8;
+            text-decoration: none;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+            padding: 8px 15px;
+            border-bottom: 2px solid transparent;
+            letter-spacing: 1px;
+        }
+
+        nav a:hover {
+            color: #8b0000;
+            border-bottom: 2px solid #8b0000;
+            text-shadow: 0 0 10px rgba(139,0,0,0.5);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        section {
+            margin-bottom: 80px;
+            background: rgba(20,20,20,0.6);
+            padding: 50px;
+            border-radius: 3px;
+            border-left: 5px solid #8b0000;
+            box-shadow: 0 10px 50px rgba(0,0,0,0.7);
+            backdrop-filter: blur(5px);
+        }
+
+        h2 {
+            font-size: 2.5em;
+            color: #ffffff;
+            margin-bottom: 30px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+            border-bottom: 2px solid #8b0000;
+            padding-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        h3 {
+            font-size: 1.8em;
+            color: #e0e0e0;
+            margin: 35px 0 20px;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.6);
+        }
+
+        p {
+            margin-bottom: 20px;
+            font-size: 1.15em;
+            text-align: justify;
+            color: #c0c0c0;
+        }
+
+        .evidence-box {
+            background: rgba(139,0,0,0.08);
+            border: 2px solid rgba(139,0,0,0.3);
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 3px;
+            box-shadow: inset 0 2px 10px rgba(0,0,0,0.5);
+        }
+
+        .evidence-box h4 {
+            color: #ff4444;
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .timeline {
+            border-left: 3px solid #8b0000;
+            padding-left: 30px;
+            margin: 30px 0;
+        }
+
+        .timeline-item {
+            margin-bottom: 35px;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -36px;
+            top: 5px;
+            width: 12px;
+            height: 12px;
+            background: #8b0000;
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(139,0,0,0.8);
+        }
+
+        .timeline-time {
+            font-weight: bold;
+            color: #8b0000;
+            font-size: 1.2em;
+            margin-bottom: 8px;
+        }
+
+        .suspect-card {
+            background: rgba(30,30,30,0.8);
+            padding: 30px;
+            margin: 25px 0;
+            border: 1px solid #333;
+            border-left: 4px solid #8b0000;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.6);
+        }
+
+        .suspect-name {
+            font-size: 1.5em;
+            color: #ff6666;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .quote {
+            font-style: italic;
+            border-left: 4px solid #8b0000;
+            padding-left: 25px;
+            margin: 25px 0;
+            color: #aaa;
+            font-size: 1.1em;
+            background: rgba(0,0,0,0.3);
+            padding: 20px 25px;
+        }
+
+        .warning {
+            background: rgba(139,0,0,0.15);
+            border: 2px solid #8b0000;
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 3px;
+            font-size: 0.95em;
+            color: #ffaaaa;
+        }
+
+        ul {
+            margin: 20px 0 20px 40px;
+        }
+
+        li {
+            margin: 12px 0;
+            color: #b8b8b8;
+            font-size: 1.1em;
+        }
+
+        .photo-caption {
+            text-align: center;
+            font-style: italic;
+            color: #888;
+            font-size: 0.95em;
+            margin-top: 15px;
+        }
+
+        footer {
+            background: rgba(10,10,10,0.95);
+            padding: 40px 20px;
+            text-align: center;
+            border-top: 2px solid #8b0000;
+            color: #666;
+        }
+
+        .redacted {
+            background: #000;
+            color: transparent;
+            user-select: none;
+            padding: 2px 8px;
+            display: inline-block;
+            position: relative;
+        }
+
+        .redacted::after {
+            content: '█████████';
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: #000;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2em;
+            }
+            
+            section {
+                padding: 30px 20px;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="grain"></div>
+    
+    <header>
+        <h1>THE KENNEDY ASSASSINATION</h1>
+        <p class="subtitle">Unanswered Questions from Dallas</p>
+        <p class="date-stamp">NOVEMBER 22, 1963</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#overview">Overview</a></li>
+            <li><a href="#magic-bullet">Magic Bullet Theory</a></li>
+            <li><a href="#grassy-knoll">The Grassy Knoll</a></li>
+            <li><a href="#mob-connection">Organized Crime</a></li>
+            <li><a href="#evidence">Evidence</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <section id="overview">
+            <h2>The Day That Changed America</h2>
+            <p>On November 22, 1963, President John F. Kennedy was assassinated in Dealey Plaza, Dallas, Texas. While the Warren Commission concluded that Lee Harvey Oswald acted alone, firing three shots from the sixth floor of the Texas School Book Depository, numerous researchers, witnesses, and investigators have questioned this official narrative for over six decades.</p>
+            
+            <p>The inconsistencies, contradictory witness testimonies, and physical evidence anomalies have spawned countless theories about what really happened that day. This site examines some of the most persistent questions that continue to haunt this watershed moment in American history.</p>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-time">12:30 PM CST</div>
+                    <p>President Kennedy's motorcade travels through Dealey Plaza. Shots ring out. The President is struck.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-time">1:00 PM</div>
+                    <p>President Kennedy is pronounced dead at Parkland Memorial Hospital.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-time">1:50 PM</div>
+                    <p>Lee Harvey Oswald is arrested at the Texas Theatre for the murder of Officer J.D. Tippit.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-time">November 24, 1963</div>
+                    <p>Jack Ruby shoots and kills Lee Harvey Oswald in the basement of Dallas Police Headquarters, silencing the alleged assassin forever.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="magic-bullet">
+            <h2>The "Magic Bullet" Theory</h2>
+            
+            <p>Perhaps no piece of evidence has generated more skepticism than Commission Exhibit 399, the nearly pristine bullet allegedly found on a stretcher at Parkland Hospital. According to the Warren Commission, this single bullet—known as the "magic bullet" or "single-bullet theory"—passed through President Kennedy's neck, then struck Governor John Connally, shattering his rib and wrist before lodging in his thigh.</p>
+
+            <h3>The Trajectory Problem</h3>
+            <p>Critics point to the seemingly impossible trajectory this bullet would need to take. For the single-bullet theory to work, the bullet had to:</p>
+            <ul>
+                <li>Enter Kennedy's upper back/lower neck at a downward angle</li>
+                <li>Exit his throat</li>
+                <li>Enter Connally's back near his right armpit</li>
+                <li>Exit below his right nipple</li>
+                <li>Shatter approximately 4 inches of his fifth rib</li>
+                <li>Exit his chest</li>
+                <li>Enter and shatter his right wrist radius bone</li>
+                <li>Exit the wrist and embed superficially in his left thigh</li>
+            </ul>
+
+            <div class="evidence-box">
+                <h4>Physical Evidence Questions</h4>
+                <p>The bullet recovered (CE 399) appeared nearly pristine, showing minimal deformation despite allegedly passing through two men and shattering major bones. Ballistics experts have noted that test bullets fired into similar mediums show significantly more damage and deformation.</p>
+                <p>Additionally, more fragments were recovered from Governor Connally's wrist alone than were missing from the pristine bullet, raising questions about whether CE 399 could have caused all the wounds attributed to it.</p>
+            </div>
+
+            <h3>The Timing Issue</h3>
+            <p>The Zapruder film, the most complete visual record of the assassination, presents timing problems for the single-bullet theory. The film shows Kennedy and Connally reacting to being hit at slightly different times. The Warren Commission had to reconcile these reactions with the operating time of Oswald's rifle—a bolt-action Mannlicher-Carcano that could not be fired, ejected, and reloaded quickly enough for all shots to have come from that weapon alone if the two men were hit by separate bullets.</p>
+
+            <div class="quote">
+                "I was not hit by the first bullet... I heard it. I had time to turn to my right, and start to turn to my left before I felt anything." — Governor John Connally, testimony disputing the single-bullet theory
+            </div>
+
+            <h3>The Autopsy Controversies</h3>
+            <p>The autopsy of President Kennedy has been the subject of intense scrutiny. The back wound was documented by the autopsy doctors as being lower than the throat wound, which would seem to contradict the downward trajectory required by the official theory. Parkland Hospital doctors who treated Kennedy described the throat wound as an entrance wound, suggesting a shot from the front.</p>
+
+            <p>Furthermore, the autopsy photographs and X-rays were not examined by the Warren Commission, and when they were finally reviewed by the House Select Committee on Assassinations in 1978, several medical professionals noted discrepancies between the photographic evidence and the original autopsy reports.</p>
+        </section>
+
+        <section id="grassy-knoll">
+            <h2>The Grassy Knoll: A Second Shooter?</h2>
+
+            <p>The grassy knoll, a small hill to the right-front of the presidential limousine, has become synonymous with JFK assassination conspiracy theories. Dozens of witnesses reported hearing shots from this location, and the violent backward motion of Kennedy's head in the Zapruder film convinced many that he was struck from the front, not from behind where Oswald was positioned.</p>
+
+            <h3>Witness Testimony</h3>
+            <p>Of the witnesses in Dealey Plaza who could determine the origin of the shots, a significant percentage indicated that at least one shot came from the area of the grassy knoll. These witnesses included:</p>
+
+            <div class="suspect-card">
+                <div class="suspect-name">S.M. Holland — Railroad Supervisor</div>
+                <p>Holland, standing on the railroad overpass directly above the grassy knoll, reported seeing a puff of smoke come from behind the fence at the top of the knoll. He immediately ran to the area and found fresh footprints and cigarette butts in the mud behind the fence, suggesting someone had been stationed there.</p>
+            </div>
+
+            <div class="suspect-card">
+                <div class="suspect-name">Jean Hill — Witness in Dealey Plaza</div>
+                <p>Hill, standing across from the grassy knoll, reported hearing between four and six shots and observed a man running from the area behind the fence. Her testimony was largely ignored by the Warren Commission, and she later claimed she was pressured to modify her account.</p>
+            </div>
+
+            <h3>Acoustic Evidence</h3>
+            <p>In 1979, the House Select Committee on Assassinations concluded that acoustic evidence from a police dictabelt recording indicated a "high probability" that a fourth shot was fired from the grassy knoll, suggesting a conspiracy. This finding was later disputed by the National Academy of Sciences, though the acoustic analysis debate continues among researchers.</p>
+
+            <div class="evidence-box">
+                <h4>The Badge Man</h4>
+                <p>Enhancement and analysis of photographs taken at the time of the assassination have revealed what some researchers call the "Badge Man"—a figure visible behind the fence on the grassy knoll at the moment of the fatal shot. While debated, some believe this enhanced image shows a person in a police uniform holding a rifle.</p>
+            </div>
+
+            <h3>Suspicious Deaths</h3>
+            <p>Several witnesses who reported seeing or hearing evidence of shots from the grassy knoll died under unusual circumstances in the years following the assassination. While coincidence cannot be ruled out, the cluster of deaths among Dealey Plaza witnesses has fueled speculation about witness silencing.</p>
+
+            <div class="quote">
+                "The shots came from the knoll... I have no doubt about it. I've heard enough gunfire in my time to know the difference." — Police Officer Bobby Hargis, motorcycle escort in Kennedy's motorcade
+            </div>
+        </section>
+
+        <section id="mob-connection">
+            <h2>The Organized Crime Connection</h2>
+
+            <p>The theory that organized crime was involved in President Kennedy's assassination is bolstered by a complex web of relationships, motivations, and suspicious circumstances. Both President Kennedy and Attorney General Robert Kennedy had declared war on organized crime, targeting mob figures who had previously provided assistance to their father Joseph Kennedy and allegedly helped secure JFK's narrow victory in the 1960 election.</p>
+
+            <h3>Motive: The Kennedy Betrayal</h3>
+            <p>The mob had multiple reasons to want Kennedy dead:</p>
+            <ul>
+                <li>Robert Kennedy's aggressive prosecution of organized crime figures, including wiretaps and investigations that threatened the very structure of La Cosa Nostra</li>
+                <li>The failed Bay of Pigs invasion and Kennedy's refusal to provide air support, which cost the mob its lucrative Cuban casino operations</li>
+                <li>The feeling of betrayal after the mob allegedly helped secure Kennedy's election through union support and, some claim, voter fraud in key states like Illinois</li>
+                <li>Kennedy's pursuit of mob-connected Teamsters president Jimmy Hoffa</li>
+            </ul>
+
+            <h3>Key Figures</h3>
+
+            <div class="suspect-card">
+                <div class="suspect-name">Carlos Marcello — New Orleans Crime Boss</div>
+                <p>Carlos Marcello, the powerful boss of the New Orleans crime family, was personally targeted by Robert Kennedy for deportation. According to several informants, Marcello allegedly made threats against the Kennedys, reportedly saying, "If you want to kill a dog, you don't cut off the tail, you cut off the head."</p>
+                <p>Marcello's territory included Louisiana and Texas, giving him operational capability in Dallas. He had deep connections to Jack Ruby, the nightclub owner who killed Lee Harvey Oswald, and to David Ferrie, a pilot with connections to both Marcello and Oswald.</p>
+            </div>
+
+            <div class="suspect-card">
+                <div class="suspect-name">Santos Trafficante — Tampa Crime Boss</div>
+                <p>Santos Trafficante Jr., who ran the mob's Cuban operations before Castro's revolution, lost millions when the casinos were shut down. He had worked with the CIA in plots to assassinate Fidel Castro and had extensive intelligence connections. Informant José Aleman claimed Trafficante told him Kennedy was "going to be hit" before the assassination.</p>
+            </div>
+
+            <div class="suspect-card">
+                <div class="suspect-name">Sam Giancana — Chicago Outfit Boss</div>
+                <p>Sam Giancana, boss of the Chicago Outfit, allegedly shared a mistress (Judith Campbell Exner) with President Kennedy and claimed to have helped deliver Illinois in the 1960 election. He was involved in CIA-Mafia plots against Castro and felt betrayed by Kennedy's anti-mob stance. Giancana was murdered in 1975, just before he was scheduled to testify before Congress about the assassination.</p>
+            </div>
+
+            <h3>The Jack Ruby Connection</h3>
+            <p>Jack Ruby's murder of Lee Harvey Oswald on live television is perhaps the strongest circumstantial evidence linking organized crime to the assassination. Ruby was not the distraught patriot he claimed to be, but rather a figure with deep mob connections:</p>
+
+            <div class="evidence-box">
+                <h4>Ruby's Mob Ties</h4>
+                <ul>
+                    <li>Ruby worked for Al Capone in Chicago during Prohibition</li>
+                    <li>He was connected to Dallas mob figure Joseph Civello, who reported to Carlos Marcello</li>
+                    <li>Phone records show Ruby made numerous calls to mob-connected individuals in the weeks before the assassination</li>
+                    <li>He was in debt to the mob and his nightclub business was failing</li>
+                    <li>Ruby visited Cuba multiple times and knew Santos Trafficante</li>
+                </ul>
+            </div>
+
+            <p>Ruby's stated reason for killing Oswald—to spare Mrs. Kennedy the ordeal of a trial—was undermined by his strange behavior and statements. He begged to be taken to Washington to tell the "truth" to the Warren Commission but was denied. In prison, he made cryptic statements suggesting he acted to silence Oswald.</p>
+
+            <h3>Lee Harvey Oswald's Possible Mob Connections</h3>
+            <p>While Oswald is often portrayed as a lone communist sympathizer, his connections to New Orleans raise questions:</p>
+            <ul>
+                <li>Oswald spent time in New Orleans, Marcello's territory, in the summer of 1963</li>
+                <li>His uncle, Charles "Dutz" Murret, was connected to the Marcello organization</li>
+                <li>Oswald was seen with David Ferrie, who worked for both Marcello and anti-Castro Cubans</li>
+                <li>The address Oswald stamped on his pro-Castro leaflets was the same building that housed an anti-Castro Cuban group with mob connections</li>
+            </ul>
+
+            <div class="quote">
+                "The mob did it. It's a historical fact." — FBI informant and mob associate Charles "Chuck" Nicoletti's alleged deathbed confession
+            </div>
+
+            <h3>The House Select Committee Findings</h3>
+            <p>In 1979, the House Select Committee on Assassinations concluded that President Kennedy was "probably assassinated as a result of a conspiracy" and that organized crime figures "had the motive, means, and opportunity" to assassinate the President. However, the Committee stated it was unable to definitively identify specific individuals involved.</p>
+
+            <div class="warning">
+                NOTE: While the evidence of mob involvement is circumstantial and suggestive, no definitive proof has emerged linking specific organized crime figures to the assassination. Many of the key figures died before they could be fully investigated or compelled to testify.
+            </div>
+        </section>
+
+        <section id="evidence">
+            <h2>Unexplained Evidence</h2>
+
+            <h3>The Zapruder Film</h3>
+            <p>Abraham Zapruder's 26-second home movie of the assassination remains the most analyzed piece of film in history. The violent backward motion of Kennedy's head in frame 313, when the fatal shot struck, has convinced many viewers that he was shot from the front. However, neurological and physical explanations have been offered for this movement, including the "jet effect" of exiting brain matter.</p>
+
+            <h3>Missing and Altered Evidence</h3>
+            <p>Numerous pieces of evidence have been questioned, gone missing, or been allegedly altered:</p>
+            <ul>
+                <li>Kennedy's brain disappeared from the National Archives and has never been found</li>
+                <li>Autopsy photographs that don't match witness descriptions</li>
+                <li>The original autopsy notes were allegedly burned by the attending physician</li>
+                <li>The presidential limousine was cleaned and rebuilt, destroying ballistic evidence</li>
+                <li>Multiple witnesses reported being shown photographs that were never entered into evidence</li>
+            </ul>
+
+            <h3>The Grassy Knoll Physical Evidence</h3>
+            <p>Despite numerous witnesses reporting suspicious activity behind the picket fence on the grassy knoll, no physical evidence of a shooter was officially found. However:</p>
+            <ul>
+                <li>Multiple witnesses saw freshly muddied footprints and cigarette butts behind the fence</li>
+                <li>A bullet strike mark was visible on the curb along Main Street, suggesting a missed shot</li>
+                <li>Reports of a bullet hole in the windshield of the limousine (from the front) were never officially confirmed</li>
+            </ul>
+
+            <h3>The Three Tramps</h3>
+            <p>Photographs show three men, dressed as "tramps," being escorted by Dallas police from a railroad car behind Dealey Plaza shortly after the assassination. These men appeared too well-groomed and well-dressed under their shabby clothing. Their identities remained unknown for decades, fueling speculation they were involved in the assassination. They were eventually identified as actual homeless men, though some researchers remain skeptical.</p>
+
+            <div class="evidence-box">
+                <h4>Suppressed Documents</h4>
+                <p>The John F. Kennedy Assassination Records Collection Act of 1992 mandated the release of all assassination-related documents by 2017. However, thousands of pages remain partially or fully redacted, with releases postponed multiple times due to "national security" concerns. What information could still be so sensitive 60+ years after the event?</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Unanswered Questions</h2>
+            <p>More than six decades after President Kennedy's death, fundamental questions remain:</p>
+            <ul>
+                <li>Could Lee Harvey Oswald have accomplished the shooting as described by the Warren Commission?</li>
+                <li>Why was the crime scene of Dealey Plaza not properly secured, allowing evidence to be compromised?</li>
+                <li>Why were so many witnesses who contradicted the official story ignored or their testimony altered?</li>
+                <li>What motivated Jack Ruby to kill Oswald, and who were all the people he contacted in the weeks before the assassination?</li>
+                <li>Why was Oswald, a supposed defector to the Soviet Union, allowed to return to the United States so easily?</li>
+                <li>What information remains classified in the still-withheld documents?</li>
+            </ul>
+
+            <div class="quote">
+                "We still do not have the whole story on the Kennedy assassination." — Robert Blakey, Chief Counsel, House Select Committee on Assassinations
+            </div>
+
+            <p>The Kennedy assassination remains one of history's most examined events, yet it continues to generate more questions than answers. Whether the truth involves a lone gunman, a conspiracy involving multiple shooters, organized crime, intelligence agencies, or some combination thereof, the full story has yet to emerge from the shadows of history.</p>
+        </section>
+    </div>
+
+    <footer>
+        <p>This site presents historical theories and unanswered questions about the JFK assassination.</p>
+        <p>No claims of definitive truth are made. Research continues.</p>
+        <p style="margin-top: 20px; color: #444;">The truth remains buried in Dallas.</p>
+    </footer>
+</body>
+</html>
